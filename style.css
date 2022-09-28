@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #EFF3F6;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
+
+.progress-title {
+    margin-top: 4px;
+}
+
+.container-progress {
+    padding: 16px;
+    width: 568px;
+    height: 320px;
+    margin: 0px auto;
+    background: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+}
+
+.progress-bar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.progress-circle {
+    transition: .3s;
+    margin-top: 50px;
+}
+
+.progress-ring__circle {
+    transform-origin: center;
+    transform: rotate(-90deg);
+    transition: stroke-dashoffset .3s;
+}
+
+.animation-rotation {
+    transform: rotate(180deg);
+}
+
+.progress-circle.animation-hide {
+    opacity: 0;
+}
+
+.progress-settings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    gap: 16px;
+}
+
+.progress-value {
+    width: 50px;
+    height: 32px;
+    border-radius: 20px;
+    padding: 2px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: center;
+    border: 2px solid #000;
+}
+
+.progress-settings label {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 30px;
+}
+
+.progress-settings span{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.progress-settings label input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-wrapper {
+    width: 50px;
+    height: 32px;
+    border-radius: 20px;
+    padding: 2px;
+    background: #dde8ed;
+    transition: .3s;
+}
+
+.checkbox {
+    position: relative;
+    left: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50px;
+    background: #fff;
+    transition: .3s;
+}
+
+.progress-settings label input[type="checkbox"]:checked + .checkbox-wrapper {
+    background: #045dfe;
+}
+
+.progress-settings label input[type="checkbox"]:checked + .checkbox-wrapper > .checkbox {
+    left: calc(100% - 28px);
+}
+
+/* Считаю что использовать "orientation" не есть хорошо,
+ из-за слабой поддержки браузеров, однако не нашёл другого решения */
+@media all and (orientation:portrait) {
+    .progress-bar {
+        flex-direction: column;
+    }
+    .container-progress {
+        width: 320px;
+        height: 568px;
+    }
+    .progress-circle {
+        margin: 56px auto 72px;
+    }
+}
+
+@media all and (orientation:landscape) {
+    .progress-bar {
+        flex-direction: row;
+        height: 100%;
+        margin: auto 0px;
+    }
+    .container-progress {
+        height: 320px;
+        width: 568px;
+    }
+    .progress-circle {
+        margin-top: 0;
+        margin-left: 56px;
+    }
+}   
